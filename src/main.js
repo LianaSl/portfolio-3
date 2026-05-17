@@ -1,7 +1,7 @@
 import './style.css'
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import { router } from './router';
+import { navigateTo, router } from './router';
 
 const root = document.getElementById('app');
 function initalLayout() {
@@ -16,5 +16,13 @@ function initalLayout() {
 }
 initalLayout();
 
-// window.addEventListener("popstate", router);
-router();
+window.addEventListener("popstate", router);
+
+document.addEventListener("DOMContentLoaded" , () => {
+    document.body.addEventListener("click", (event) => {
+        if(event.target.matches("[data-link]")) {
+         navigateTo(event.target.href);
+        }
+    });
+    router();
+    });
