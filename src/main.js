@@ -16,4 +16,5 @@ function initalLayout() {
 }
 initalLayout();
 
-window.addEventListener("popstate", router);
+// window.addEventListener("popstate", router);
+router();
