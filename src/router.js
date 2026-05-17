@@ -1,7 +1,11 @@
-import { Hlavní } from "./pages/Hlavní.js";
-import { About } from "./pages/Omne.js";
-import { Kontakt } from "./pages/Kontakt.js";
+import { Hlavni } from "./pages/Hlavni";
+import { About } from "./pages/Omne";
+import { Kontakt } from "./pages/Kontakt";
 
+// import { HomePage } from './pages/HomePage'
+// import { About } from './pages/About'
+// import { Contact } from './pages/Concact'
+// import { ErrorPage } from './pages/ErrorPage';
 
 export function navigateTo(url) {
     history.pushState(null, null, url);
@@ -10,7 +14,7 @@ export function navigateTo(url) {
 }
 export async function router() {
     const routes = [
-            {path: "/", view: Hlavní },
+            {path: "/", view: Hlavni },
             {path: "/about", view: O_mně },
             {path: "/contact", view: Kontakt },
     ];
@@ -23,9 +27,16 @@ export async function router() {
         }
     });
  let match = potentialMatches.find(el => el.isMatch);
+    // if (!match) {
+    //     match = {
+    //         router: { view: () => `<h1>404 Not Found</h1>` },
+    //         isMatch: true 
+    //     };
+    // };
+    
     if (!match) {
         match = {
-            router: { view: () => `<h1>404 Not Found</h1>` },
+            router: { view: () => ErrorPage() },
             isMatch: true 
         };
     };

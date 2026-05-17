@@ -1,6 +1,7 @@
 import './style.css'
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { router } from './router';
 
 const root = document.getElementById('app');
 function initalLayout() {
@@ -14,3 +15,5 @@ function initalLayout() {
     `
 }
 initalLayout();
+
+window.addEventListener("popstate", router);
