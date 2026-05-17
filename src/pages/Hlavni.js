@@ -9,7 +9,7 @@ export function Hlavni() {
                 Vitam Vas na sve portfolio strance.
                 Vstupuji do IT — vědomě, krok za krokem. Za sebou mám roky práce s daty, lidmi
                 a procesy. Před sebou — kód, technologie a všechno, co mě na tom opravdu baví.
-                HTML už ovládám. JavaScript a Python — učím se právě teď.
+                HTML a JavaScript už ovládám. Python — učím se právě teď.
                 Není to změna profese. Konečně jdu tam, kam jsem vždycky chtěla.
             </p>
             <div class="foto2">

@@ -1,6 +1,91 @@
 export function About() {
   return `
-  <h1>O mně</h1>
-  <p>Toto je stránka o mně.</p>
+  
+    <aside class="aside about-aside">
+        <div class="about-wrapper">
+            <div class="about-hero">
+                <div class="foto-block">
+                    <img src="fotoj1.jpg" alt="Liana Šljonkina">
+                </div>
+                <div class="text-block">
+                    <h1>O MNĚ</h1>
+                    <p>
+                        Pocházím z Ufy — hlavního města Baškirska, města s bohatou historií a kulturou.
+                        Jsem tatarské národnosti a tyto kořeny jsou pro mě důležitou součástí identity,
+                        ať jsem kdekoli. Více o tatarské kultuře se můžete dozvědět na stránkách
+                        <a href="http://tatar.cz/" class="tatar-link" target="_blank">tatar.cz</a>.
+                        <br><br>
+                        Již více než 20 let žiji v Praze — ve městě, které se dávno stalo mým skutečným domovem.
+                        Vzdělání mě původně směřovalo k psychologii a pedagogice, ale život rozhodl jinak
+                        — a ta cesta byla nakonec stejně bohatá.
+                    </p>
+                </div>
+            </div>
+
+            <div class="about-sections">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-icon">💼</span>
+                        <h2>Kariéra & zkušenosti</h2>
+                    </div>
+                    <p>Za ta léta jsem vyzkoušela různá povolání: pracovala jsem jako realitní makléřka,
+                        finanční poradkyně i oblastní manažerka. Každá z těchto rolí mi dala něco cenného
+                        — jiný pohled na lidi, na trh, na to, jak fungují vztahy v byznysu. Velkou část života
+                        mě provází management — obor, ve kterém se cítím skutečně ve svém živlu. Baví mě vést lidi,
+                        hledat řešení tam, kde jiní vidí jen problémy, a budovat týmy, na které je spolehnutí.
+                        Ráda se učím a nebojím se změn — naopak, považuju je za příležitost růst a posouvat se dál.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-icon">✈️</span>
+                        <h2>Cestování</h2>
+                    </div>
+                    <img src="fotoj3.jpg" alt="Cestování po Evropě">
+                    <p>Evropu jsem procestovala křížem krážem — při osobních výpravách i pracovních cestách.
+                        Každý výlet je nový příběh, nové zážitky a trochu jiný pohled na svět.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-icon">🏙️</span>
+                        <h2>Odkud pocházím — Ufa</h2>
+                    </div>
+                    <img src="fon2.3.jpg" alt="Ufa — hlavní město Baškirska">
+                    <p>Ufa je hlavní město Baškirska — kraj uprostřed Ruska, kde se setkávají
+                        tatarská, baškirská a ruská kultura. Město plné kontrastů, přírody a hrdé identity,
+                        které mě formovalo a které nosím v srdci.</p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-icon">🌸</span>
+                        <h2>Záliby</h2>
+                    </div>
+                    <img src="kytky.jpg" alt="Moje květiny">
+                    <p>Pěstování květin je moje meditace — každý květ má svůj příběh.
+                        Knihy jsou způsob, jak se nikdy nepřestat rozvíjet. A cestování?
+                        To je způsob, jak žít naplno.</p>
+                </div>
+
+                <div class="card wide">
+                    <img src="flora1.jpg" alt="Kočka Flora">
+                    <div class="card-body">
+                        <div class="card-header">
+                            <span class="card-icon">🐱</span>
+                            <h2>Moje kočka Flora</h2>
+                        </div>
+                        <p>Miluji perské kočky. Před Florou se mnou 20 let žila moje perská kráska Laska
+                            — skutečný přítel a člen rodiny. Loni jsme se rozloučily.
+                            <br><br>
+                            Flora se objevila v mém životě něco přes rok a už si v mém srdci
+                            získala své zvláštní, nenahraditelné místo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
   `;
 }
