@@ -2,6 +2,7 @@ import { Hlavni } from "./pages/Hlavni";
 import { About } from "./pages/Omne";
 import { Kontakt } from "./pages/Kontakt";
 import { ErrorPage } from "./pages/ErrorPage";  // ✅ добавить импорт
+import { initKontakt } from "./pages/Kontakt";
 
 export function navigateTo(url) {
     history.pushState(null, null, url);
@@ -33,4 +34,7 @@ export async function router() {
 
     const routerView = document.querySelector(".main");
     routerView.innerHTML = match.route.view();  // ✅ match.route, не match.router
+    if (location.pathname === '/contact') {
+    initKontakt();
+}
 }
