@@ -1,8 +1,11 @@
 import { Hlavni } from "./pages/Hlavni";
 import { About } from "./pages/Omne";
 import { Kontakt } from "./pages/Kontakt";
-import { ErrorPage } from "./pages/ErrorPage";  // ✅ добавить импорт
+import { ErrorPage } from "./pages/ErrorPage";  
 import { initKontakt } from "./pages/Kontakt";
+import { Certifikaty } from "./pages/Certifikaty";
+import { Fotogalerie } from "./pages/Fotogalerie";
+
 
 export function navigateTo(url) {
     history.pushState(null, null, url);
@@ -14,6 +17,8 @@ export async function router() {
         { path: "/", view: Hlavni },
         { path: "/about", view: About },    // ✅ было O_mně
         { path: "/contact", view: Kontakt },
+        { path: "/certifikaty", view: Certifikaty },
+        { path: "/fotogalerie", view: Fotogalerie },
     ];
 
     const potentialMatches = routes.map(route => {
