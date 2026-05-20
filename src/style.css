@@ -66,6 +66,34 @@ body {
 
 .nav ul li:hover { color: white; }
 
+/* ===== FOOTER ===== */
+
+.footer {
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    font-family: "EB Garamond", serif;
+    background-image: linear-gradient(
+        to left,
+        rgb(55, 122, 223),
+        rgb(99, 160, 184),
+        rgb(241, 146, 146)
+    );
+}
+
+/* ===== MAIN ===== */
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== HLAVNÍ ===== */
+
 .aside {
     flex: 1;
     background-color: rgba(198, 220, 238, 0.7);
@@ -90,17 +118,7 @@ body {
     color: rgb(5, 114, 187);
 }
 
-.karLi {
-    width: 350px;
-    height: 450px;
-    border-radius: 50px;
-    object-fit: cover;
-    display: block;
-    box-shadow:
-        0 0 15px 5px rgb(241, 146, 146),
-        0 0 30px 10px rgb(99, 160, 184);
-}
-
+.karLi,
 .logo-img2 {
     width: 350px;
     height: 450px;
@@ -110,22 +128,12 @@ body {
     box-shadow:
         0 0 15px 5px rgb(241, 146, 146),
         0 0 30px 10px rgb(99, 160, 184);
+    transition: transform 0.4s ease;
 }
 
-.footer {
-    height: 20vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: white;
-    font-family: "EB Garamond", serif;
-    background-image: linear-gradient(
-        to left,
-        rgb(55, 122, 223),
-        rgb(99, 160, 184),
-        rgb(241, 146, 146)
-    );
+.karLi:hover,
+.logo-img2:hover {
+    transform: scale(1.08);
 }
 
 /* ===== O MNĚ ===== */
@@ -271,9 +279,173 @@ a.tatar-link {
 }
 a.tatar-link:hover { color: rgb(200, 80, 120); border-color: rgb(200, 80, 120); }
 
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
+/* ===== CERTIFIKÁTY ===== */
+
+.main-content {
+    flex: 1;
+    background-color: rgba(198, 220, 238, 0.7);
+    background-image: url(/put5.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 40px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.cert-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    animation: fadeUp 0.7s ease both;
+    animation-delay: var(--delay, 0s);
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    border-radius: 50px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow:
+        0 0 15px 5px rgb(241, 146, 146),
+        0 0 30px 10px rgb(99, 160, 184);
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+}
+
+.card-shine {
+    position: absolute;
+    top: -100%;
+    left: -60%;
+    width: 40%;
+    height: 200%;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.18) 50%, transparent 60%);
+    z-index: 3;
+    pointer-events: none;
+}
+
+.card-inner img {
+    width: 100%;
+    height: 360px;
+    object-fit: contain;
+    display: block;
+    padding: 16px;
+    transition: transform 0.5s ease;
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(55, 122, 223, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 2;
+}
+
+.cert-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.cert-card:hover .card-inner {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow:
+        0 0 20px 8px rgb(241, 146, 146),
+        0 0 40px 14px rgb(99, 160, 184);
+}
+
+.cert-card:hover .card-overlay { opacity: 1; }
+.cert-card:hover .card-inner img { transform: scale(1.04); }
+.cert-card:hover .card-shine { animation: shine 0.6s ease forwards; }
+
+.cert-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgb(5, 114, 187);
+    font-weight: 400;
+}
+
+/* ===== FOTOGALERIE ===== */
+
+.gallery-section {
+    flex: 1;
+    background-color: rgba(198, 220, 238, 0.7);
+    background-image: url(/put5.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    padding: 50px 40px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.photo-card {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow:
+        0 0 15px 5px rgb(241, 146, 146),
+        0 0 30px 10px rgb(99, 160, 184);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.photo-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 0 20px 8px rgb(241, 146, 146),
+        0 0 40px 15px rgb(99, 160, 184);
+}
+
+.photo-wrap { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; }
+
+.photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.photo-card:hover .photo-wrap img { transform: scale(1.06); }
+
+.photo-caption {
+    padding: 14px 18px 18px;
+    border-top: 1px solid rgba(99, 160, 184, 0.2);
+}
+
+.photo-caption p {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: rgb(30, 80, 140);
+    font-style: italic;
 }
 
 /* ===== KONTAKT ===== */
@@ -375,11 +547,6 @@ a.tatar-link:hover { color: rgb(200, 80, 120); border-color: rgb(200, 80, 120); 
     animation: modalIn 0.3s ease;
 }
 
-@keyframes modalIn {
-    from { opacity: 0; transform: translateY(30px) scale(0.97); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
-}
-
 .modal-close {
     position: absolute;
     top: 1rem;
@@ -468,7 +635,28 @@ a.tatar-link:hover { color: rgb(200, 80, 120); border-color: rgb(200, 80, 120); 
     line-height: 1.8;
 }
 
+/* ===== ANIMATIONS ===== */
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes shine {
+    from { left: -60%; }
+    to   { left: 130%; }
+}
+
 /* ===== MEDIA ===== */
+
+@media (max-width: 1024px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
 
 @media (max-width: 768px) {
     .header { height: auto; padding: 16px 20px; }
@@ -484,339 +672,15 @@ a.tatar-link:hover { color: rgb(200, 80, 120); border-color: rgb(200, 80, 120); 
     .about-sections { grid-template-columns: 1fr; }
     .card.wide { flex-direction: column; }
     .card.wide img { width: 100%; height: 220px; }
-}
-.karLi,
-.logo-img2 {
-    transition: transform 0.4s ease;
-}
-
-.karLi:hover,
-.logo-img2:hover {
-    transform: scale(1.08);
-}
-.nav { width: 100%; }
-
-.nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-    padding: 16px 24px;
-    margin: 0;
-}
-
-.nav ul li { cursor: pointer; }
-
-.nav ul li a,
-.nav ul li {
-    font-family: 'EB Garamond', serif;
-    font-size: 40px;
-    text-decoration: none;
-    color: hsl(219, 69%, 42%);
-    cursor: pointer;
-    transition: opacity 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
-    box-shadow: 0 2px 10px rgba(100, 120, 200, 0.25);
-}
-
-.nav ul li a:hover,
-.nav ul li:hover {
-    opacity: 0.88;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 18px rgba(180, 100, 160, 0.4);
-}
-
-.nav ul li a.active {
-    background: linear-gradient(135deg, rgb(55, 122, 223), rgb(241, 146, 146));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.nav ul li:hover { color: white; }
-
-.footer {
-    height: 20vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: white;
-    font-family: "EB Garamond", serif;
-    background-image: linear-gradient(
-        to left,
-        rgb(55, 122, 223),
-        rgb(99, 160, 184),
-        rgb(241, 146, 146)
-    );
-}
-
-@media (max-width: 768px) {
-    .header { height: auto; padding: 16px 20px; }
-    .nav ul { flex-wrap: wrap; justify-content: center; gap: 8px; padding: 10px 16px; }
-    .nav ul li a, .nav ul li { font-size: 22px; }
-}
-
-/* ===== CERTIFIKÁTY PAGE ===== */
-
-.main-content {
-    flex: 1;
-    background-color: rgba(198, 220, 238, 0.7);
-    background-image: url(put5.jpeg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: overlay;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 40px;
-}
-
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 32px;
-    max-width: 1200px;
-    width: 100%;
-}
-
-.cert-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    animation: fadeUp 0.7s ease both;
-    animation-delay: var(--delay, 0s);
-}
-
-.card-inner {
-    position: relative;
-    width: 100%;
-    border-radius: 50px;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow:
-        0 0 15px 5px rgb(241, 146, 146),
-        0 0 30px 10px rgb(99, 160, 184);
-    cursor: pointer;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
-}
-
-.card-shine {
-    position: absolute;
-    top: -100%;
-    left: -60%;
-    width: 40%;
-    height: 200%;
-    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.18) 50%, transparent 60%);
-    z-index: 3;
-    pointer-events: none;
-}
-
-.card-inner img {
-    width: 100%;
-    height: 360px;
-    object-fit: contain;
-    display: block;
-    padding: 16px;
-    transition: transform 0.5s ease;
-}
-
-.card-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(55, 122, 223, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.35s ease;
-    z-index: 2;
-}
-
-.cert-label {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: white;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-}
-
-.cert-card:hover .card-inner {
-    transform: translateY(-6px) scale(1.01);
-    box-shadow:
-        0 0 20px 8px rgb(241, 146, 146),
-        0 0 40px 14px rgb(99, 160, 184);
-}
-
-.cert-card:hover .card-overlay { opacity: 1; }
-.cert-card:hover .card-inner img { transform: scale(1.04); }
-.cert-card:hover .card-shine { animation: shine 0.6s ease forwards; }
-
-.cert-title {
-    font-family: 'EB Garamond', serif;
-    font-size: 0.85rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: rgb(5, 114, 187);
-    font-weight: 400;
-}
-
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes shine {
-    from { left: -60%; }
-    to   { left: 130%; }
-}
-
-@media (max-width: 768px) {
     .main-content { padding: 30px 20px; }
-}
-.nav { width: 100%; }
-
-.nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-    padding: 16px 24px;
-    margin: 0;
-}
-
-.nav ul li { cursor: pointer; }
-
-.nav ul li a,
-.nav ul li {
-    font-family: 'EB Garamond', serif;
-    font-size: 40px;
-    text-decoration: none;
-    color: hsl(219, 69%, 42%);
-    cursor: pointer;
-    transition: opacity 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
-    box-shadow: 0 2px 10px rgba(100, 120, 200, 0.25);
-}
-
-.nav ul li a:hover,
-.nav ul li:hover {
-    opacity: 0.88;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 18px rgba(180, 100, 160, 0.4);
-}
-
-.nav ul li a.active {
-    background: linear-gradient(135deg, rgb(55, 122, 223), rgb(241, 146, 146));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.nav ul li:hover { color: white; }
-
-.footer {
-    height: 20vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    color: white;
-    font-family: "EB Garamond", serif;
-    background-image: linear-gradient(
-        to left,
-        rgb(55, 122, 223),
-        rgb(99, 160, 184),
-        rgb(241, 146, 146)
-    );
-}
-
-@media (max-width: 768px) {
-    .header { height: auto; padding: 16px 20px; }
-    .nav ul { flex-wrap: wrap; justify-content: center; gap: 8px; padding: 10px 16px; }
-    .nav ul li a, .nav ul li { font-size: 22px; }
-}
-
-/* ===== FOTOGALERIE PAGE ===== */
-
-.gallery-section {
-    flex: 1;
-    background-color: rgba(198, 220, 238, 0.7);
-    background-image: url(put5.jpeg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: overlay;
-    padding: 50px 40px;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.photo-card {
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow:
-        0 0 15px 5px rgb(241, 146, 146),
-        0 0 30px 10px rgb(99, 160, 184);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.photo-card:hover {
-    transform: translateY(-6px);
-    box-shadow:
-        0 0 20px 8px rgb(241, 146, 146),
-        0 0 40px 15px rgb(99, 160, 184);
-}
-
-.photo-wrap { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; }
-
-.photo-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.photo-card:hover .photo-wrap img { transform: scale(1.06); }
-
-.photo-caption {
-    padding: 14px 18px 18px;
-    border-top: 1px solid rgba(99, 160, 184, 0.2);
-}
-
-.photo-caption p {
-    font-family: 'EB Garamond', serif;
-    font-size: 1.1rem;
-    line-height: 1.5;
-    color: rgb(30, 80, 140);
-    font-style: italic;
-}
-
-@media (max-width: 1024px) {
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
 }
 
 @media (max-width: 480px) {
     .gallery-section { padding: 30px 20px; }
     .gallery-grid { grid-template-columns: 1fr; gap: 20px; }
 }
-.main {
-    flex: 1;
+#app {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
-. body {
-    height: 100%;
 }
